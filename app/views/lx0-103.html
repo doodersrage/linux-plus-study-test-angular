@@ -1,0 +1,28 @@
+<section class="content">
+  <div data-ng-controller="Lx0103Ctrl" data-ng-init="testInit()" class="">
+    <form class="form-horizontal">
+    <div class="row">
+      <div style="text-align:left" class="col-md-6">
+        Current Question: <span ng-bind="curCnt"></span> |
+        Remaining: <span ng-bind="remCnt"></span>
+      </div>
+      <div style="text-align:left" class="col-md-6">
+      </div>
+    </div>
+    <div class="jumbotron" compile="qstView">
+
+    </div>
+    <div class="row">
+      <div compile="results" style="text-align:center"></div>
+    </div>
+    <div class="row">
+      <div style="text-align:left" class="col-md-6">
+        <button ng-click="loadPrevious()" class="btn btn-default">Previous Question</button>
+      </div>
+      <div style="text-align:right" class="col-md-6">
+        <button style="text-align:right" ng-click="checkSelections()" class="btn btn-default">Submit</button>
+        <button style="text-align:right" ng-click="testInit()" class="btn btn-default" ng-show="nextBtn == 1">Next Question</button>
+      </div>
+    </div>
+  </form>
+</section>
