@@ -271,3 +271,115 @@ lx0103.push({
     'C'
   ]
 });
+lx0103.push({
+  'type': 'multiple',
+  'text': 'What can the Logical Volume Manager (LVM) be used for? (Choose THREE correct answers.)',
+  'options': {
+    'A': 'To create RAID 9 arrays.',
+    'B': 'To dynamically change the size of logical volumes.',
+    'C': 'To encrypt logical volumes.',
+    'D': 'To create snapshots.',
+    'E': 'To dynamically create or delete logical volumes.'
+  },
+  'answers': [
+    'B',
+    'D',
+    'E'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands updates the linker cache of shared libraries?',
+  'options': {
+    'A': 'mkcache',
+    'B': 'soconfig',
+    'C': 'mkldconfig',
+    'D': 'lddconfig',
+    'E': 'ldconfig'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands lists all currently installed packages when using RPM package management?',
+  'options': {
+    'A': 'yum --query --all',
+    'B': 'yum --list --installed',
+    'C': 'rpm --query --all',
+    'D': 'rpm --list–installed'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands can be used to download the RPM package kernel without installing it?',
+  'options': {
+    'A': 'yum download --no-install kernel',
+    'B': 'yumdownloader kernel',
+    'C': 'rpm --download --package kernel',
+    'D': 'rpmdownload kernel'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'When using rpm --verify to check files created during the installation of RPM packages, which of the following information is taken into consideration? (Choose THREE correct answers.)',
+  'options': {
+    'A': 'Timestamps',
+    'B': 'MD5 checksums',
+    'C': 'Inodes',
+    'D': 'File sizes',
+    'E': 'GnuPG signatures'
+  },
+  'answers': [
+    'A',
+    'B',
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following is correct when talking about mount points?',
+  'options': {
+    'A': 'Every existing directory can be used as a mount point.',
+    'B': 'Only empty directories can be used as a mount point.',
+    'C': 'Directories need to have the SetUID flag set to be used as a mount point.',
+    'D': 'Files within a directory are deleted when the directory is used as a mount point.'
+  },
+  'answers': [
+    'A'
+  ]
+});
+// lx0103.push({
+//   'type': 'single',
+//   'text': 'Which function key is used to start Safe Mode in Windows NT?',
+//   'options': {
+//     'A': 'F10',
+//     'B': 'F8',
+//     'C': 'F6',
+//     'D': 'Windows NT does not support Safe Mode'
+//   },
+//   'answers': [
+//     'D'
+//   ]
+// });
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following environment variables overrides or extends the list of directories holding shared libraries?',
+  'options': {
+    'A': 'LD_LOAD_PATH',
+    'B': 'LD_LIB_PATH',
+    'C': 'LD_LIBRARY_PATH',
+    'D': 'LD_SHARE_PATH',
+    'E': 'LD_RUN_PATH'
+  },
+  'answers': [
+    'C'
+  ]
+});

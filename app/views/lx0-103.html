@@ -2,13 +2,13 @@
   <div data-ng-controller="QuizCtrl" data-ng-init="testInit('lx0103')" class="">
     <form class="form-horizontal">
     <div class="row">
-      <div style="text-align:left" class="col-md-8">
+      <div style="text-align:left" class="col-md-9">
         Current Question: <span ng-bind="curCnt"></span> |
         % Completed: <span>{{Math.round((100 / questions.length) * curCnt-1)}}</span> |
         Remaining: <span ng-bind="remCnt"></span> |
         % Remaining: <span>{{Math.round((100 / questions.length) * remCnt)}}</span>
       </div>
-      <div style="text-align:left" class="col-md-4">
+      <div style="text-align:left" class="col-md-3">
       </div>
     </div>
     <div class="jumbotron" compile="qstView">
