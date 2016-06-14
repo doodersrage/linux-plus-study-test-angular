@@ -576,6 +576,229 @@ lx0103.push({
   'type': 'text',
   'text': 'Which signal is missing from the following command that is commonly used to instruct a daemon to reinitialize itself, including reading configuration files? killall -s _______ daemon',
   'answers': [
-    'HUP', 'SIGHUP', '1'
+    'HUP',
+    'SIGHUP',
+    '1'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What is the maximum niceness value that a regular user can assign to a process with the nice command when executing a new process?',
+  'options': {
+    'A': '9',
+    'B': '19',
+    'C': '49',
+    'D': '99'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Immediately after deleting 3 lines of text in vi and moving the cursor to a different line, which single character command will insert the deleted content below the current line?',
+  'options': {
+    'A': 'i (lowercase)',
+    'B': 'P (uppercase)',
+    'C': 'p (lowercase)',
+    'D': 'U (uppercase)',
+    'E': 'u (lowercase)'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'A user accidentally created the subdirectory \dir in his home directory. Which of the following commands will remove that directory?',
+  'options': {
+    'A': "rmdir '~/\dir'",
+    'B': 'rmdir "~/\dir"',
+    'C': "rmdir ~/'dir'",
+    'D': 'rmdir ~/\dir',
+    'E': 'rmdir ~/\\dir'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'In compliance with the FHS, in which of the directories are man pages found?',
+  'options': {
+    'A': '/usr/share/man',
+    'B': '/opt/man',
+    'C': '/usr/doc/',
+    'D': '/var/pkg/man',
+    'E': '/var/man'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands will send output from the program myapp to both standard output (stdout) and the file file1.log?',
+  'options': {
+    'A': 'cat < myapp | cat > file1.log',
+    'B': 'myapp 0>&1 | cat > file1.log',
+    'C': 'myapp | cat > file1.log',
+    'D': 'myapp | tee file1.log',
+    'E': 'tee myapp file1.log'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What is the purpose of the Bash built-in export command?',
+  'options': {
+    'A': 'It allows disks to be mounted remotely.',
+    'B': 'It runs a command as a process in a subshell.',
+    'C': 'It makes the command history available to subshells.',
+    'D': 'It sets up environment variables for applications.',
+    'E': 'It shares NFS partitions for use by other systems on the network.'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What is the output of the following command? echo "Hello World" | tr -d aieou',
+  'options': {
+    'A': 'Hello World',
+    'B': 'eoo',
+    'C': 'Hll Wrld',
+    'D': 'eoo Hll Wrld'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following characters can be combined with a separator string in order to read from the current input source until the separator string, which is on a separate line and without any trailing spaces, is reached?',
+  'options': {
+    'A': '<<',
+    'B': '<|',
+    'C': '!<',
+    'D': '&<'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands will NOT update the modify timestamp on the file /tmp/myfile.txt?',
+  'options': {
+    'A': 'file /tmp/myfile.txt',
+    'B': 'echo "Hello" >/tmp/myfile.txt',
+    'C': 'sed -ie "s/1/2/" /tmp/myfile.txt',
+    'D': 'echo -n "Hello" >>/tmp/myfile.txt',
+    'E': 'touch /tmp/myfile.txt'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What is the default nice level when a process is started using the nice command?',
+  'options': {
+    'A': '-10',
+    'B': '10',
+    'C': '20',
+    'D': '0'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What is the default action of the split command on an input file?',
+  'options': {
+    'A': 'It will break the file into new files of 1,024 byte pieces each.',
+    'B': 'It will break the file into new files of 1,000 line pieces each.',
+    'C': 'It will break the file into new files of 1,024 kilobyte pieces each.',
+    'D': 'It will break the file into new files that are no more than 5% of the size of the original file.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What is the difference between the i and a commands of the vi editor?',
+  'options': {
+    'A': 'i (interactive) requires the user to explicitly switch between vi modes whereas a (automatic) switches modes automatically.',
+    'B': 'i (insert) inserts text before the current cursor position whereas a (append) inserts text after the cursor.',
+    'C': 'i (independent rows) starts every new line at the first character whereas a (aligned rows) keeps the indentation of the previous line.',
+    'D': 'i (interrupt) temporarily suspends editing of a file to the background whereas a (abort) terminates editing.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which command displays a list of all background tasks running in the current shell? (Specify ONLY the command without any path or parameters.)',
+  'answers': [
+    'jobs'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands moves and resumes in the background the last stopped shell job?',
+  'options': {
+    'A': 'run',
+    'B': 'bg',
+    'C': 'fg',
+    'D': 'back'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What is the effect of the egrep command when the -v option is used?',
+  'options': {
+    'A': 'It enables color to highlight matching parts.',
+    'B': 'It only outputs non-matching lines.',
+    'C': 'It shows the command\'s version information.',
+    'D': 'It changes the output order showing the last matching line first.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What does the ? symbol within regular expressions represent?',
+  'options': {
+    'A': 'Match the preceding qualifier one or more times.',
+    'B': 'Match the preceding qualifier zero or more times.',
+    'C': 'Match the preceding qualifier zero or one times.',
+    'D': 'Match a literal ? character.'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'In the vi editor, how can commands such as moving the cursor or copying lines into the buffer be issued multiple times or applied to multiple rows?',
+  'options': {
+    'A': 'By using the command :repeat followed by the number and the command.',
+    'B': 'By specifying the number right in front of a command such as 4l or 2yj.',
+    'C': 'By selecting all affected lines using the shift and cursor keys before applying the command.',
+    'D': 'By issuing a command such as :set repetition=4 which repeats every subsequent command 4 times.'
+  },
+  'answers': [
+    'B'
   ]
 });
