@@ -1,12 +1,14 @@
 <section class="content">
-  <div data-ng-controller="Lx0103Ctrl" data-ng-init="testInit()" class="">
+  <div data-ng-controller="QuizCtrl" data-ng-init="testInit('lx0103')" class="">
     <form class="form-horizontal">
     <div class="row">
-      <div style="text-align:left" class="col-md-6">
+      <div style="text-align:left" class="col-md-8">
         Current Question: <span ng-bind="curCnt"></span> |
-        Remaining: <span ng-bind="remCnt"></span>
+        % Completed: <span>{{Math.round((100 / questions.length) * curCnt-1)}}</span> |
+        Remaining: <span ng-bind="remCnt"></span> |
+        % Remaining: <span>{{Math.round((100 / questions.length) * remCnt)}}</span>
       </div>
-      <div style="text-align:left" class="col-md-6">
+      <div style="text-align:left" class="col-md-4">
       </div>
     </div>
     <div class="jumbotron" compile="qstView">
@@ -17,11 +19,11 @@
     </div>
     <div class="row">
       <div style="text-align:left" class="col-md-6">
-        <button ng-click="loadPrevious()" class="btn btn-default">Previous Question</button>
+        <button ng-if="curCnt > 1" ng-click="loadPrevious()" class="btn btn-default">Previous Question</button>
       </div>
       <div style="text-align:right" class="col-md-6">
         <button style="text-align:right" ng-click="checkSelections()" class="btn btn-default">Submit</button>
-        <button style="text-align:right" ng-click="testInit()" class="btn btn-default" ng-show="nextBtn == 1">Next Question</button>
+        <button style="text-align:right" ng-click="questIter()" class="btn btn-default" ng-show="nextBtn == 1">Next Question</button>
       </div>
     </div>
   </form>

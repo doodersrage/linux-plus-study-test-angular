@@ -25,7 +25,7 @@ angular
       })
       .when('/lx0-103', {
         templateUrl: 'views/lx0-103.html',
-        controller: 'Lx0103Ctrl'
+        controller: 'QuizCtrl'
       })
       .when('/lx0-104', {
         templateUrl: 'views/lx0-104.html',

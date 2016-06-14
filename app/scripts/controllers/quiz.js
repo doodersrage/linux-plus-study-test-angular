@@ -8,10 +8,11 @@
  * Controller of the quizApp
  */
 angular.module('quizApp')
-  .controller('Lx0103Ctrl', ['$scope','$sce', function ($scope,$sce) {
+  .controller('QuizCtrl', ['$scope','$sce', function ($scope,$sce) {
     // init controller vars
     $scope.qstView = '';
     $scope.answeredQsts = [];
+    $scope.answeredQstsLst = [];
     $scope.userSelections = [];
     $scope.checkVals = {};
     $scope.prevQstID = 0;
@@ -20,133 +21,10 @@ angular.module('quizApp')
     $scope.remCnt = 0;
     $scope.results = '';
     $scope.nextBtn = 0;
+    $scope.Math = Math;
 
     // load exam questions
     $scope.questions = [];
-    $scope.questions[0] = {
-      'type': 'single',
-      'text': 'Which SysV init configuration file should be modified to disable the ctrl-alt-delete key combination?',
-      'options': {
-        'A': '/etc/keys',
-        'B': '/proc/keys',
-        'C': '/etc/inittab',
-        'D': '/proc/inittab',
-        'E': '/etc/reboot'
-      },
-      'answers': [
-        'C'
-      ]
-    };
-    $scope.questions[1] = {
-      'type': 'single',
-      'text': 'During a system boot cycle, what program is executed after the BIOS completes its tasks?',
-      'options': {
-        'A': 'The bootloader',
-        'B': 'The inetd program',
-        'C': 'The init program',
-        'D': 'The kernel'
-      },
-      'answers': [
-        'A'
-      ]
-    };
-    $scope.questions[2] = {
-      'type': 'multiple',
-      'text': 'Which run levels should never be declared as the default run level when using SysV init? (Choose TWO correct answers.)',
-      'options': {
-        'A': 0,
-        'B': 1,
-        'C': 3,
-        'D': 5,
-        'E': 6
-      },
-      'answers': [
-        'A',
-        'E'
-      ]
-    };
-    $scope.questions[3] = {
-      'type': 'single',
-      'text': 'Which of the following statements is correct when talking about /proc/?',
-      'options': {
-        'A': 'All changes to files in /proc/ are stored in /etc/proc.d/ and restored on reboot.',
-        'B': 'All files within /proc/ are read-only and their contents cannot be changed.',
-        'C': 'All changes to files in /proc/ are immediately recognized by the kernel.',
-        'D': 'All files within /proc/ are only readable by the root user.'
-      },
-      'answers': [
-        'C'
-      ]
-    };
-    $scope.questions[4] = {
-      'type': 'multiple',
-      'text': 'What of the following statements are true regarding /dev/ when using udev? (Choose TWO correct answers.)',
-      'options': {
-        'A': 'Entries for all possible devices get created on boot even if those devices are not connected.',
-        'B': 'Additional rules for udev can be created by adding them to /etc/udev/rules.d/.',
-        'C': 'When using udev, it is not possible to create block or character devices in /dev/ using mknod.',
-        'D': 'The /dev/ directory is a filesystem of type tmpfs and is mounted by udev during system startup.',
-        'E': 'The content of /dev/ is stored in /etc/udev/dev and is restored during system startup.'
-      },
-      'answers': [
-        'B',
-        'D'
-      ]
-    };
-    $scope.questions[5] = {
-      'type': 'multiple',
-      'text': 'Which of the following information is stored within the BIOS? (Choose TWO correct answers.)',
-      'options': {
-        'A': 'Boot device order',
-        'B': 'Linux kernel version',
-        'C': 'Timezone',
-        'D': 'Hardware configuration',
-        'E': 'The system\'s hostname'
-      },
-      'answers': [
-        'A',
-        'D'
-      ]
-    };
-    $scope.questions[6] = {
-      'type': 'multiple',
-      'text': 'Which of the following commands reboots the system when using SysV init? (Choose TWO correct answers.)',
-      'options': {
-        'A': 'shutdown -r now',
-        'B': 'shutdown -r "rebooting"',
-        'C': 'telinit 6',
-        'D': 'telinit 0',
-        'E': 'shutdown -k now "rebooting"'
-      },
-      'answers': [
-        'A',
-        'C'
-      ]
-    };
-    $scope.questions[7] = {
-      'type': 'multiple',
-      'text': 'Which of the following are init systems used within Linux systems? (Choose THREE correct answers.)',
-      'options': {
-        'A': 'startd',
-        'B': 'systemd',
-        'C': 'Upstart',
-        'D': 'SysInit',
-        'E': 'SysV init'
-      },
-      'answers': [
-        'B',
-        'C',
-        'E'
-      ]
-    };
-    $scope.questions[8] = {
-      'type': 'text',
-      'text': 'Which file in the /proc filesystem lists parameters passed from the bootloader to the kernel? (Specify the file name only without any path.)',
-      'answers': [
-        'cmdline',
-        '/proc/cmdline'
-      ]
-    };
 
     // toggle selection for a given fruit by name
     $scope.toggleSelection = function(sel) {
@@ -224,21 +102,28 @@ angular.module('quizApp')
 
     // get current cnt
     $scope.currentCnt = function(){
-      var qstsAnswd = $scope.answeredQsts.length || 0,
-          i = 0,
-          ansCnt = 0;
-
-      for(i; i < qstsAnswd; ++i){
-        if($scope.answeredQsts[i]){
-          ansCnt += 1;
-        }
-      }
-
-      $scope.curCnt = ansCnt + 1;
+      $scope.curCnt = $scope.answeredQstsLst.length + 1;
     };
 
     // test display
-    $scope.testInit = function(reqQst){
+    $scope.testInit = function(questSet){
+
+      // loads questions
+      if(questSet === 'lx0103' || typeof questSet === 'undefined'){
+        $scope.questions = lx0103;
+      } else if(questSet === 'lx0104'){
+        $scope.questions = lx0104;
+      } else {
+        $scope.questions = [];
+      }
+
+      // load initial question
+      $scope.questIter();
+
+    };
+
+    $scope.questIter = function(reqQst){
+
       var qstsLimit = $scope.questions.length,
           qstsAnswd = $scope.answeredQsts.length || 0,
           randQst = reqQst || Math.floor((Math.random() * qstsLimit));
@@ -257,14 +142,20 @@ angular.module('quizApp')
         $scope.curQstID = randQst;
         $scope.prntQuestion($scope.questions[randQst]);
       } else {
-        $scope.testInit();
+        $scope.questIter();
       }
 
     };
 
     // load previous question
     $scope.loadPrevious = function(){
-
+      var prevID = $scope.answeredQstsLst.indexOf(Number($scope.curQstID));
+      if(prevID === -1){
+        if($scope.answeredQstsLst.length > 0){
+          prevID = $scope.answeredQstsLst[$scope.answeredQstsLst.length - 1];
+        }
+      }
+      $scope.questIter(prevID);
     };
 
     // check current question for correctness
@@ -299,6 +190,9 @@ angular.module('quizApp')
 
         // store and show results
         $scope.answeredQsts[$scope.curQstID] = $scope.userSelections;
+        if($scope.answeredQstsLst.indexOf($scope.curQstID)){
+          $scope.answeredQstsLst.push($scope.curQstID);
+        }
         $scope.results = 'Correct answers: ' + curQuest.answers + '<br>Your Results: ' + correctCnt + ' correct';
         $scope.nextBtn = 1;
 
