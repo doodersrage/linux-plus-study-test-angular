@@ -383,3 +383,199 @@ lx0103.push({
     'C'
   ]
 });
+lx0103.push({
+  'type': 'text',
+  'text': 'Which world-writable directory should be placed on a separate partition in order to prevent users from being able to fill up the / filesystem? (Specify the full path to the directory.)',
+  'answers': [
+    '/tmp',
+    'tmp',
+    '/var/tmp',
+    '/tmp/',
+    '/var/tmp/'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which RPM command will output the name of the package which supplied the file /etc/exports?',
+  'options': {
+    'A': 'rpm -F /etc/exports',
+    'B': 'rpm -qf /etc/exports',
+    'C': 'rpm -Kl /etc/exports',
+    'D': 'rpm -qp /etc/exports',
+    'E': 'rpm -qi /etc/exports'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'In which directory must definition files be placed to add additional repositories to yum?',
+  'answers': [
+    '/etc/yum.repos.d',
+    '/etc/yum.repos.d/',
+    'yum.repos.d',
+    'yum.repos.d/'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'What is the name of the main configuration file for GNU GRUB? (Specify the file name only without any path.)',
+  'answers': [
+    'menu.lst',
+    'grub.conf',
+    'grub.cfg'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'When removing a package, which of the following dpkg options will completely remove the files including configuration files?',
+  'options': {
+    'A': '--clean',
+    'B': '--delete',
+    'C': '--purge',
+    'D': '–remove'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which file should be edited to select the network locations from which Debian installation package files are loaded?',
+  'options': {
+    'A': '/etc/dpkg/dpkg.cfg',
+    'B': '/etc/apt/apt.conf',
+    'C': '/etc/apt/apt.conf.d',
+    'D': '/etc/apt/sources.list',
+    'E': '/etc/dpkg/dselect.cfg'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which option to the yum command will update the entire system? (Specify ONLY the option name without any additional parameters.)',
+  'answers': [
+    'update',
+    'upgrade'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which command will disable swapping on a device? (Specify ONLY the command without any path or parameters.)',
+  'answers': [
+    'swapoff',
+    '/sbin/swapoff'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which Debian package management tool asks the configuration questions for a specific already installed package just as if the package were being installed for the first time? (Specify ONLY the command without any path or parameters.)',
+  'answers': [
+    'dpkg-reconfigure'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands overwrites the bootloader located on /dev/sda without overwriting the partition table or any data following it?',
+  'options': {
+    'A': 'dd if=/dev/zero of=/dev/sda bs=512',
+    'B': 'dd if=/dev/zero of=/dev/sda bs=512 count=1',
+    'C': 'dd if=/dev/zero of=/dev/sda bs=440 count=1',
+    'D': 'dd if=/dev/zero of=/dev/sda bs=440'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands can be used to create a USB storage media from a disk image?',
+  'options': {
+    'A': 'gdisk',
+    'B': 'dd',
+    'C': 'cc',
+    'D': 'fdisk',
+    'E': 'mount'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'In Bash, inserting 1>&2 after a command redirects',
+  'options': {
+    'A': 'standard error to standard input.',
+    'B': 'standard input to standard error.',
+    'C': 'standard output to standard error.',
+    'D': 'standard error to standard output.',
+    'E': 'standard output to standard input.'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What command will generate a list of user names from /etc/passwd along with their login shell?',
+  'options': {
+    'A': 'column -s : 1,7 /etc/passwd',
+    'B': 'chop -c 1,7 /etc/passwd',
+    'C': 'colrm 1,7 /etc/passwd',
+    'D': 'cut -d: -f1,7 /etc/passwd'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'In a nested directory structure, which find command line option would be used to restrict the command to searching down a particular number of subdirectories?',
+  'options': {
+    'A': '-dirmax',
+    'B': '-maxdepth',
+    'C': '-maxlevels',
+    'D': '-n',
+    'E': '-s'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following statements is correct regarding the command foo 1> bar?',
+  'options': {
+    'A': 'The stdout from the command foo is appended to the file bar.',
+    'B': 'The stdout from the command foo overwrites the file bar.',
+    'C': 'The command foo receives its stdin from the file bar.',
+    'D': 'The command foo receives its stdin from the stdout of the command bar.',
+    'E': 'The stderr from the command foo is saved to the file bar.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands kills the process with the PID 123 but allows the process to "clean up" before exiting?',
+  'options': {
+    'A': 'kill -PIPE 123',
+    'B': 'kill -KILL 123',
+    'C': 'kill -STOP 123',
+    'D': 'kill -TERM 123'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which signal is missing from the following command that is commonly used to instruct a daemon to reinitialize itself, including reading configuration files? killall -s _______ daemon',
+  'answers': [
+    'HUP', 'SIGHUP', '1'
+  ]
+});
