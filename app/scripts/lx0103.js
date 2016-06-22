@@ -802,3 +802,225 @@ lx0103.push({
     'B'
   ]
 });
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following files, located in the user home directory, is used to store the Bash history?',
+  'options': {
+    'A': 'bash_history',
+    'B': 'bash_histfile',
+    'C': 'history',
+    'D': 'bashrc_history',
+    'E': 'history_bash'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which Bash environment variable defines in which file the user history is stored when exiting a Bash process? (Specify ONLY the variable name.)',
+  'answers': [
+    'HISTFILE'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands displays the contents of a gzip compressed tar archive?',
+  'options': {
+    'A': 'gzip archive.tgz | tar xvf -',
+    'B': 'tar ztf archive.tgz',
+    'C': 'gzip -d archive.tgz | tar tvf -',
+    'D': 'tar cf archive.tgz'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which grep command will print only the lines that do not end with a / in the file foo?',
+  'options': {
+    'A': 'grep \'/$\' foo',
+    'B': 'grep \'/#\' foo',
+    'C': 'grep -v \'/$\' foo',
+    'D': 'grep -v \'/#\' foo'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands is used to change options and positional parameters for a running Bash?',
+  'options': {
+    'A': 'history',
+    'B': 'set',
+    'C': 'bashconf',
+    'D': 'setsh',
+    'E': 'envsetup'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands replaces each occurrence of \'bob\' in the file letter with \'Bob\' and writes the result to the file newletter?',
+  'options': {
+    'A': 'sed \'/bob/Bob\' letter > newletter',
+    'B': 'sed s/bob/Bob/ letter < newletter',
+    'C': 'sed \'s/bob/Bob\' letter > newletter',
+    'D': 'sed \'s/bob/Bob/g\' letter > newletter',
+    'E': 'sed \'s/bob, Bob/\' letter > newletter'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'From a Bash shell, which of the following commands directly executes the instruction from the file /usr/local/bin/runme.sh without starting a subshell? (Please select TWO answers.)',
+  'options': {
+    'A': 'source /usr/local/bin/runme.sh',
+    'B': '. /usr/local/bin/runme.sh',
+    'C': '/bin/bash /usr/local/bin/runme.sh',
+    'D': '/usr/local/bin/runme.sh',
+    'E': 'run /usr/local/bin/runme.sh'
+  },
+  'answers': [
+    'A',
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Regarding the command: <br> nice -5 /usr/bin/prog <br> Which of the following statements is correct?': {
+    'A': '/usr/bin/prog is executed with a nice level of -5.',
+    'B': '/usr/bin/prog is executed with a nice level of 5.',
+    'C': '/usr/bin/prog is executed with a priority of -5.',
+    'D': '/usr/bin/prog is executed with a priority of 5.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which shell command is used to continue background execution of a suspended command?': {
+    'A': '&',
+    'B': 'bg',
+    'C': 'cont',
+    'D': 'exec',
+    'E': ':&'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following shell redirections will write standard output and standard error output to a file named filename?': {
+    'A': '2>&1 >filename',
+    'B': '>filename 2>&1',
+    'C': '1>&2>filename',
+    'D': '>>filename',
+    'E': '1&2>filename'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'In the vi editor, which of the following commands will copy the current line into the vi buffer?': {
+    'A': 'c',
+    'B': 'cc',
+    'C': '1c',
+    'D': 'yy',
+    'E': '1y'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'Which of the following sequences in the vi editor saves the opened document and exits the editor? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'esc ZZ',
+    'B': 'ctrl :w!',
+    'C': 'esc zz',
+    'D': 'esc :wq!',
+    'E': 'ctrl XX'
+  },
+  'answers': [
+    'A',
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'When starting a program with the nice command without any additional parameters, which nice level is set for the resulting process?': {
+    'A': '-10',
+    'B': '0',
+    'C': '10',
+    'D': '20'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands will reduce all consecutive spaces down to a single space?',
+  'options': {
+    'A': 'tr \'\s\' \' \' < a.txt > b.txt',
+    'B': 'tr -c \' \' < a.txt > b.txt',
+    'C': 'tr -d \' \' < a.txt > b.txt',
+    'D': 'tr -r \' \' \'\n\' < a.txt > b.txt',
+    'E': 'tr -s \' \' < a.txt > b.txt'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which character, added to the end of a command, runs that command in the background as a child process of the current shell?',
+  'options': {
+    'A': '!',
+    'B': '+',
+    'C': '&',
+    'D': '%',
+    'E': '#'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands will print the last 10 lines of a text file to the standard output?',
+  'options': {
+    'A': 'cat -n 10 filename',
+    'B': 'dump -n 10 filename',
+    'C': 'head -n 10 filename',
+    'D': 'tail -n 10 filename'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands prints a list of usernames (first column) and their primary group (fourth column) from the /etc/passwd file?',
+  'options': {
+    'A': 'fmt -f 1,4 /etc/passwd',
+    'B': 'split -c 1,4 /etc/passwd',
+    'C': 'cut -d : -f 1,4 /etc/passwd',
+    'D': 'paste -f 1,4 /etc/passwd'
+  },
+  'answers': [
+    'C'
+  ]
+});
