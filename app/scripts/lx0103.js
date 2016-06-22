@@ -1024,3 +1024,554 @@ lx0103.push({
     'C'
   ]
 });
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following signals is sent to a process when the key combination CTRL+C is pressed on the keyboard?',
+  'options': {
+    'A': 'SIGTERM',
+    'B': 'SIGINT',
+    'C': 'SIGSTOP',
+    'D': 'SIGKILL'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What happens after issuing the command vi without any additional parameters?',
+  'options': {
+    'A': 'vi starts and loads the last file used and moves the cursor to the position where vi was when it last exited.',
+    'B': 'vi starts and requires the user to explicitly either create a new or load an existing file.',
+    'C': 'vi exits with an error message as it cannot be invoked without a file name to operate on.',
+    'D': 'vi starts in command mode and opens a new empty file.',
+    'E': 'vi starts and opens a new file which is filled with the content of the vi buffer if the buffer contains text.'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following command sets the Bash variable named TEST with the content FOO?',
+  'options': {
+    'A': 'set TEST="FOO"',
+    'B': 'TEST = "FOO"',
+    'C': 'var TEST="FOO"',
+    'D': 'TEST="FOO"'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which variable defines the directories in which a Bash shell searches for executable commands?',
+  'options': {
+    'A': 'BASHEXEC',
+    'B': 'BASHRC',
+    'C': 'PATH',
+    'D': 'EXECPATH',
+    'E': 'PATHRC'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands determines the type of a file by using a definition database file which contains information about all common file types?',
+  'options': {
+    'A': 'magic',
+    'B': 'type',
+    'C': 'file',
+    'D': 'pmagic',
+    'E': 'hash'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which command is used in a Linux environment to create a new directory? (Specify ONLY the command without any path or parameters.)',
+  'answers': [
+    'mkdir',
+    '/usr/bin/mkdir'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'Which of the following commands prints all files and directories within the /tmp directory or its subdirectories which are also owned by the user root? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'find /tmp -uid root -print',
+    'B': 'find -path /tmp -uid root',
+    'C': 'find /tmp -user root -print',
+    'D': 'find /tmp -user root',
+    'E': 'find -path /tmp -user root–print'
+  },
+  'answers': [
+    'C',
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'When running the command<br> sed -e "s/a/b/" /tmp/file >/tmp/file<br> While /tmp/file contains data, why is /tmp/file empty afterwards?',
+  'options': {
+    'A': 'The file order is incorrect. The destination file must be mentioned before the command to ensure redirection.',
+    'B': 'The command sed did not match anything in that file therefore the output is empty.',
+    'C': 'When the shell establishes the redirection it overwrites the target file before the redirected command starts and opens it for reading.',
+    'D': 'Redirection for shell commands do not work using the > character. It only works using the | character instead.'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'When given the following command line.<br> echo "foo bar" | tee bar | cat<br> Which of the following output is created?',
+  'options': {
+    'A': 'cat',
+    'B': 'foo bar',
+    'C': 'tee bar',
+    'D': 'bar',
+    'E': 'foo'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'Which of the following commands can be used to determine how long the system has been running? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'uptime',
+    'B': 'up',
+    'C': 'top',
+    'D': 'uname -u',
+    'E': 'time–up'
+  },
+  'answers': [
+    'A',
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'Which of the following are valid stream redirection operators within Bash? (Choose THREE correct answers.)',
+  'options': {
+    'A': '<',
+    'B': '<<<',
+    'C': '>',
+    'D': '>>>',
+    'E': '%>'
+  },
+  'answers': [
+    'A',
+    'B',
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'After successfully creating a hard link called bar to the ordinary file foo, foo is deleted from the filesystem. Which of the following describes the resulting situation?',
+  'options': {
+    'A': 'foo and bar would both be removed.',
+    'B': 'foo would be removed while bar would remain accessible.',
+    'C': 'foo would be removed. bar would still exist but would be unusable.',
+    'D': 'Both foo and bar would remain accessible.',
+    'E': 'The user is prompted whether bar should be removed, too.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'After moving data to a new filesystem, how can the former path of the data be kept intact in order to avoid reconfiguration of existing applications? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'By creating an ACL redirection from the old to the new path of the data.',
+    'B': 'By creating a hard link from the old to the new path of the data.',
+    'C': 'By creating a symbolic link from the old to the new path of the data.',
+    'D': 'By running the command touch on the old path.',
+    'E': 'By mounting the new filesystem on the original path of the data.'
+  },
+  'answers': [
+    'C',
+    'E'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands changes the ownership of file.txt to the user dan and the group staff?',
+  'options': {
+    'A': 'chown dan/staff file.txt',
+    'B': 'chown dan:staff file.txt',
+    'C': 'chown -u dan -g staff file.txt',
+    'D': 'chown dan -g staff file.txt'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands makes /bin/foo executable by everyone but writable only by its owner?',
+  'options': {
+    'A': 'chmod u=rwx,go=rx /bin/foo',
+    'B': 'chmod o+rwx,a+rx /bin/foo',
+    'C': 'chmod 577 /bin/foo',
+    'D': 'chmod 775 /bin/foo'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands can be used to search for the executable file foo when it has been placed in a directory not included in $PATH?',
+  'options': {
+    'A': 'apropos',
+    'B': 'which',
+    'C': 'find',
+    'D': 'query',
+    'E': 'whereis'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What does the command mount -a do?',
+  'options': {
+    'A': 'It ensures that all file systems listed with the option noauto in /etc/fstab are mounted.',
+    'B': 'It shows all mounted file systems that have been automatically mounted.',
+    'C': 'It opens an editor with root privileges and loads /etc/fstab for editing.',
+    'D': 'It ensures that all file systems listed with the option auto in /etc/fstab are mounted.',
+    'E': 'It ensures that all file systems listed in /etc/fstab are mounted regardless of their options.'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following settings for umask ensures that new files have the default permissions -rwr----- ?',
+  'options': {
+    'A': '0017',
+    'B': '0640',
+    'C': '0038',
+    'D': '0027'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following is the device file name for the second partition on the only SCSI drive?',
+  'options': {
+    'A': '/dev/hda1',
+    'B': '/dev/sda2',
+    'C': '/dev/sd0a2',
+    'D': '/dev/sd1p2'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'In order to display all currently mounted filesystems, which of the following commands could be used? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'cat /proc/self/mounts',
+    'B': 'free',
+    'C': 'mount',
+    'D': 'lsmounts',
+    'E': 'cat /proc/filesystems'
+  },
+  'answers': [
+    'A',
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands can be used to locate programs and their corresponding man pages and configuration files?',
+  'options': {
+    'A': 'dirname',
+    'B': 'which',
+    'C': 'basename',
+    'D': 'query',
+    'E': 'whereis'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands changes the number of days before the ext3 filesystem on /dev/sda1 has to run through a full filesystem check while booting?',
+  'options': {
+    'A': 'tune2fs -d 200 /dev/sda1',
+    'B': 'tune2fs -c 200 /dev/sda1',
+    'C': 'tune2fs -i 200 /dev/sda1',
+    'D': 'tune2fs -n 200 /dev/sda1',
+    'E': 'tune2fs --days 200 /dev/sda1'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which type of filesystem is created by mkfs when it is executed with the block device name only and without any additional parameters?',
+  'options': {
+    'A': 'ext2',
+    'B': 'ext3',
+    'C': 'ext4',
+    'D': 'XFS',
+    'E': 'VFAT'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'How many fields are in a syntactically correct line of /etc/fstab?',
+  'options': {
+    'A': '3',
+    'B': '4',
+    'C': '5',
+    'D': '6',
+    'E': '7'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which command is used to create and initialize the files used to store quota information? (Specify ONLY the command without any path or parameters.)',
+  'answers': [
+    'quotacheck'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following file permissions belong to a symbolic link?',
+  'options': {
+    'A': '-rwxrwxrwx',
+    'B': '+rwxrwxrwx',
+    'C': 'lrwxrwxrwx',
+    'D': 'srwxrwxrwx'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Creating a hard link to an ordinary file returns an error. What could be the reason for this?',
+  'options': {
+    'A': 'The source file is hidden.',
+    'B': 'The source file is read-only.',
+    'C': 'The source file is a shell script.',
+    'D': 'The source file is already a hard link.',
+    'E': 'The source and the target are on different filesystems.'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'Which of the following commands creates an ext3 filesystem on /dev/sdb1? (Choose TWO correct answers.)',
+  'options': {
+    'A': '/sbin/mke2fs -j /dev/sdb1',
+    'B': '/sbin/mkfs -t ext3 /dev/sdb1',
+    'C': '/sbin/mkfs -c ext3 /dev/sdb1',
+    'D': '/sbin/mke3fs -j /dev/sdb1'
+  },
+  'answers': [
+    'A',
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands will change the quota for a specific user?',
+  'options': {
+    'A': 'edquota',
+    'B': 'repquota',
+    'C': 'quota -e',
+    'D': 'quota'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which utility would be used to change how often a filesystem check is performed on an ext2 filesystem without losing any data stored on that filesystem?',
+  'options': {
+    'A': 'mod2fs',
+    'B': 'fsck',
+    'C': 'tune2fs',
+    'D': 'mke2fs',
+    'E': 'fixe2fs'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'Which of the following Linux filesystems preallocates a fixed number of inodes at the filesystem\'s make/creation time and does NOT generate them as needed? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'ext3',
+    'B': 'JFS',
+    'C': 'ext2',
+    'D': 'XFS',
+    'E': 'procfs'
+  },
+  'answers': [
+    'A',
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What is the purpose of the Filesystem Hierarchy Standard?',
+  'options': {
+    'A': 'It is a security model used to ensure files are organized according to their permissions and accessibility.',
+    'B': 'It provides unified tools to create, maintain and manage multiple filesystems in a common way.',
+    'C': 'It defines a common internal structure of inodes for all compliant filesystems.',
+    'D': 'It is a distribution neutral description of locations of files and directories.'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'text',
+  'text': 'Which umask value will result in the default access permissions of 600 (rw-------) for files and 700 (rwx------) for directories? (Specify only the numerical umask value.)',
+  'answers': [
+    '0077',
+    '077'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'Instead of supplying an explicit device in /etc/fstab for mounting, what other options may be used to identify the intended partition? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'FIND',
+    'B': 'ID',
+    'C': 'LABEL',
+    'D': 'NAME',
+    'E': 'UUID'
+  },
+  'answers': [
+    'C',
+    'E'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'After running the command umount /mnt, the following error message is displayed:<br> umount: /mnt: device is busy.<br> What is a common reason for this message?',
+  'options': {
+    'A': 'The kernel has not finished flushing disk writes to the mounted device.',
+    'B': 'A user has a file open in the /mnt directory.',
+    'C': 'Another file system still contains a symlink to a file inside /mnt.',
+    'D': 'The files in /mnt have been scanned and added to the locate database.',
+    'E': 'The kernel thinks that a process is about to open a file in /mnt for reading.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What does the command mount -a do?',
+  'options': {
+    'A': 'It mounts all available filesystems onto the current directory.',
+    'B': 'It shows all mounted filesystems.',
+    'C': 'It mounts all user mountable filesystems for the current user.',
+    'D': 'It mounts all filesystems listed in /etc/fstab which have the option auto set.',
+    'E': 'It mounts all filesystems listed in /etc/fstab which have the option noauto set.'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0103.push({
+  'type': 'multiple',
+  'text': 'Which of the following commands set the sticky bit for the directory /tmp? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'chmod +s /tmp',
+    'B': 'chmod +t /tmp',
+    'C': 'chmod 1775 /tmp',
+    'D': 'chmod 4775 /tmp',
+    'E': 'chmod 2775 /tmp'
+  },
+  'answers': [
+    'B',
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands can be used to display the inode number of a given file?',
+  'options': {
+    'A': 'inode',
+    'B': 'ls',
+    'C': 'ln',
+    'D': 'cp'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following commands shows the definition of a given shell command?',
+  'options': {
+    'A': 'where',
+    'B': 'stat',
+    'C': 'type',
+    'D': 'case'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'What do the permissions -rwSr-xr-x mean for a binary file when it is executed as a command?',
+  'options': {
+    'A': 'The command is SetUID and it will be executed with the effective rights of the owner.',
+    'B': 'The command will be executed with the effective rights of the group instead of the owner.',
+    'C': 'The execute flag is not set for the owner. Therefore the SetUID flag is ignored.',
+    'D': 'The command will be executed with the effective rights of the owner and group.'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0103.push({
+  'type': 'single',
+  'text': 'Which of the following pieces of information of an existing file is changed when a hard link pointing to that file is created?',
+  'options': {
+    'A': 'File size',
+    'B': 'Modify timestamp',
+    'C': 'Link count',
+    'D': 'Inode number',
+    'E': 'Permissions'
+  },
+  'answers': [
+    'C'
+  ]
+});
