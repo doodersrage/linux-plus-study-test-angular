@@ -894,7 +894,8 @@ lx0103.push({
 });
 lx0103.push({
   'type': 'single',
-  'text': 'Regarding the command: <br> nice -5 /usr/bin/prog <br> Which of the following statements is correct?': {
+  'text': 'Regarding the command: <br> nice -5 /usr/bin/prog <br> Which of the following statements is correct?',
+  'options': {
     'A': '/usr/bin/prog is executed with a nice level of -5.',
     'B': '/usr/bin/prog is executed with a nice level of 5.',
     'C': '/usr/bin/prog is executed with a priority of -5.',
@@ -906,7 +907,8 @@ lx0103.push({
 });
 lx0103.push({
   'type': 'single',
-  'text': 'Which shell command is used to continue background execution of a suspended command?': {
+  'text': 'Which shell command is used to continue background execution of a suspended command?',
+  'options': {
     'A': '&',
     'B': 'bg',
     'C': 'cont',
@@ -919,7 +921,8 @@ lx0103.push({
 });
 lx0103.push({
   'type': 'single',
-  'text': 'Which of the following shell redirections will write standard output and standard error output to a file named filename?': {
+  'text': 'Which of the following shell redirections will write standard output and standard error output to a file named filename?',
+  'options': {
     'A': '2>&1 >filename',
     'B': '>filename 2>&1',
     'C': '1>&2>filename',
@@ -932,7 +935,8 @@ lx0103.push({
 });
 lx0103.push({
   'type': 'single',
-  'text': 'In the vi editor, which of the following commands will copy the current line into the vi buffer?': {
+  'text': 'In the vi editor, which of the following commands will copy the current line into the vi buffer?',
+  'options': {
     'A': 'c',
     'B': 'cc',
     'C': '1c',
@@ -960,7 +964,8 @@ lx0103.push({
 });
 lx0103.push({
   'type': 'single',
-  'text': 'When starting a program with the nice command without any additional parameters, which nice level is set for the resulting process?': {
+  'text': 'When starting a program with the nice command without any additional parameters, which nice level is set for the resulting process?',
+  'options': {
     'A': '-10',
     'B': '0',
     'C': '10',
