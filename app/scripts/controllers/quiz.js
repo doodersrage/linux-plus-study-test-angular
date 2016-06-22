@@ -11,6 +11,7 @@ angular.module('quizApp')
   .controller('QuizCtrl', ['$scope','$sce', function ($scope,$sce) {
     // init controller vars
     $scope.qstView = '';
+    $scope.qstCnt = 0;
     $scope.answeredQsts = [];
     $scope.answeredQstsLst = [];
     $scope.userSelections = [];
@@ -21,6 +22,8 @@ angular.module('quizApp')
     $scope.remCnt = 0;
     $scope.results = '';
     $scope.nextBtn = 0;
+    $scope.per_correct = 0;
+    // shared local vars
     $scope.Math = Math;
 
     // load exam questions
@@ -117,6 +120,9 @@ angular.module('quizApp')
         $scope.questions = [];
       }
 
+      // update controller vars
+      $scope.qstCnt = $scope.questions.length;
+
       // load initial question
       $scope.questIter();
 
@@ -158,6 +164,22 @@ angular.module('quizApp')
       $scope.questIter(prevID);
     };
 
+    // gather user score data
+    $scope.getScores = function(){
+      var ansQstsLn = $scope.answeredQstsLst.length,
+          i = 0,
+          correctCnt = 0;
+
+      // walk through all user supplied answers
+      for(i; i < ansQstsLn; ++i){
+        if($scope.answeredQsts[$scope.answeredQstsLst[i]].ansCorrect === 1){
+          ++correctCnt;
+        }
+      }
+
+      $scope.per_correct = Math.round((100 / $scope.curCnt) * correctCnt);
+    };
+
     // check current question for correctness
     $scope.checkSelections = function(){
       var curQuest = $scope.questions[$scope.curQstID],
@@ -165,7 +187,8 @@ angular.module('quizApp')
           selAnswersCnt = $scope.userSelections.length,
           i = 0,
           j = 0,
-          correctCnt = 0;
+          correctCnt = 0,
+          ansCorrect = 0;
 
         // determine question type
         switch(curQuest.type){
@@ -179,23 +202,35 @@ angular.module('quizApp')
                 }
               }
             }
+            // check for correct answer
+            if(correctCnt === correctAnswersCnt){
+              ansCorrect = 1;
+            }
           break;
           case 'text':
             for(j; j < correctAnswersCnt; ++j){
               if($scope.userSelections === curQuest.answers[j]){
                 correctCnt += 1;
+                ansCorrect = 1;
               }
             }
           break;
         }
 
         // store and show results
-        $scope.answeredQsts[$scope.curQstID] = $scope.userSelections;
-        if($scope.answeredQstsLst.indexOf($scope.curQstID)){
+        $scope.answeredQsts[$scope.curQstID] = { 'answers': $scope.userSelections };
+        // store correct status
+        $scope.answeredQsts[$scope.curQstID].ansCorrect = ansCorrect;
+        // saved answered questions
+        if($scope.answeredQstsLst.indexOf($scope.curQstID) === -1){
           $scope.answeredQstsLst.push($scope.curQstID);
         }
+        // update correct stats
         $scope.results = 'Correct answers: ' + curQuest.answers + '<br>Your Results: ' + correctCnt + ' correct';
         $scope.nextBtn = 1;
+
+        // update user scores
+        $scope.getScores();
 
     };
 
