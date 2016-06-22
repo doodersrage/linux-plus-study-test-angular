@@ -172,6 +172,7 @@ angular.module('quizApp')
           case 'single':
           case 'multiple':
             for(i; i < selAnswersCnt; ++i){
+              j = 0;
               for(j; j < correctAnswersCnt; ++j){
                 if($scope.userSelections[i] === curQuest.answers[j]){
                   correctCnt += 1;
