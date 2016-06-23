@@ -1143,3 +1143,135 @@ lx0104.push({
     '1024'
   ]
 });
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following statements is valid in the file /etc/nsswitch.conf?',
+  'options': {
+    'A': 'multi on',
+    'B': '192.168.168.4 dns-server',
+    'C': 'hosts: files dns',
+    'D': 'include /etc/nsswitch.d/'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'Which command, depending on its options, can display the open network connections, the routing tables, as well as network interface statistics. (Specify ONLY the command without any path or parameters.)',
+  'answers': [
+    'netstat',
+    '/bin/netstat',
+    'ss',
+    '/usr/bin/ss'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'Which port is the default server port for the HTTPS protocol? (Specify the port number using digits.)',
+  'answers': [
+    '443'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'Which of the following IPv4 networks are reserved by IANA for private address assignment and private routing? (Choose THREE correct answers.)',
+  'options': {
+    'A': '127.0.0.0/8',
+    'B': '10.0.0.0/8',
+    'C': '169.255.0.0/16',
+    'D': '172.16.0.0/12',
+    'E': '92.168.0.0/16'
+  },
+  'answers': [
+    'B',
+    'D',
+    'E'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following tools used for DNS debugging, reports not only the response from the name server but also details about the query?',
+  'options': {
+    'A': 'dnsq',
+    'B': 'dig',
+    'C': 'hostname',
+    'D': 'dnslookup',
+    'E': 'zoneinfo'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'What of the following can be done by the command ifconfig? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'Set a network interface active or inactive.',
+    'B': 'Specify the kernel module to be used with a network interface.',
+    'C': 'Allow regular users to change the network configuration of a network interface.',
+    'D': 'Change the netmask used on a network interface.',
+    'E': 'Specify which network services are available on a network interface.'
+  },
+  'answers': [
+    'A',
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following programs can be used to determine the routing path to a given destination?',
+  'options': {
+    'A': 'dig',
+    'B': 'netstat',
+    'C': 'ping',
+    'D': 'route',
+    'E': 'traceroute'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Given the following routing table:<br> Kernel IP routing table<br> Destination Gateway Genmask Flags Metric Ref Use Iface<br> 0.0.0.0 192.168.178.1 0.0.0.0 UG 0 0 0 wlan0<br> 192.168.1.0 0.0.0.0 255.255.255.0 U 0 0 0 eth0<br> 192.168.2.0 192.168.1.1 255.255.255.0 U 0 0 0 eth0<br> 192.168.178.0 0.0.0.0 255.255.255.0 U 9 0 0 wlan0<br> How would an outgoing packet to the destination 192.168.2.150 be handled?',
+  'options': {
+    'A': 'It would be passed to the default router 192.168.178.1 on wlan0.',
+    'B': 'It would be directly transmitted on the device eth0.',
+    'C': 'It would be passed to the default router 255.255.255.0 on eth0.',
+    'D': 'It would be directly transmitted on the device wlan0.',
+    'E': 'It would be passed to the router 192.168.1.1 on eth0.'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following is a valid IPv6 address?',
+  'options': {
+    'A': '2001:db8:3241::1',
+    'B': '2001::db8:4581::1',
+    'C': '2001:db8:0g41::1',
+    'D': '2001%db8%9990%%1',
+    'E': '2001.db8.819f..1'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'Which of the following keywords can be used in the file /etc/resolv.conf? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'substitute',
+    'B': 'nameserver',
+    'C': 'search',
+    'D': 'lookup',
+    'E': 'method'
+  },
+  'answers': [
+    'B',
+    'C'
+  ]
+});
