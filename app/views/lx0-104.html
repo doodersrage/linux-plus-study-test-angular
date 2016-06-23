@@ -1,1 +1,31 @@
-<p>This is the about view.</p>
+<section class="content">
+  <div data-ng-controller="QuizCtrl" data-ng-init="testInit('lx0104')" class="">
+    <form class="form-horizontal">
+    <div class="row">
+      <div style="text-align:left" class="col-md-6">
+        <p>Current Question: <span ng-bind="curCnt"></span> |
+        Remaining: <span ng-bind="remCnt"></span><br>
+        Completed: %<span>{{Math.round((100 / qstCnt) * curCnt-1)}}</span> |
+        Remaining: %<span>{{Math.round((100 / qstCnt) * remCnt)}}</span></p>
+      </div>
+      <div style="text-align:left" class="col-md-6">
+        <p>correct out of attempted: %{{per_correct}}</p>
+      </div>
+    </div>
+    <div class="jumbotron" compile="qstView">
+
+    </div>
+    <div class="row">
+      <div compile="results" style="text-align:center"></div>
+    </div>
+    <div class="row">
+      <div style="text-align:left" class="col-md-6">
+        <button ng-if="curCnt > 1" ng-click="loadPrevious()" class="btn btn-default">Previous Question</button>
+      </div>
+      <div style="text-align:right" class="col-md-6">
+        <button style="text-align:right" ng-click="checkSelections()" class="btn btn-default">Submit</button>
+        <button style="text-align:right" ng-click="questIter()" class="btn btn-default" ng-show="nextBtn == 1">Next Question</button>
+      </div>
+    </div>
+  </form>
+</section>

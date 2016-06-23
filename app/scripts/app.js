@@ -29,7 +29,7 @@ angular
       })
       .when('/lx0-104', {
         templateUrl: 'views/lx0-104.html',
-        controller: 'Lx0103Ctrl'
+        controller: 'QuizCtrl'
       })
       .otherwise({
         redirectTo: '/'
