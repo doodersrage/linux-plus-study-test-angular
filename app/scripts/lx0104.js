@@ -636,3 +636,270 @@ lx0104.push({
     '/usr/sbin/groupadd'
   ]
 });
+lx0104.push({
+  'type': 'single',
+  'text': 'What is not contained in the locale setting of the operating system?',
+  'options': {
+    'A': 'currency symbol',
+    'B': 'language',
+    'C': 'timezone',
+    'D': 'thousands separator'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'What is true about the file /etc/localtime?',
+  'options': {
+    'A': 'It is a plain text file containing a string such as Europe/Berlin.',
+    'B': 'It is created and maintained by the NTP service based on the geolocation of the system\'s IP address.',
+    'C': 'It is a symlink to /sys/device/clock/ltime and always contains the current local time.',
+    'D': 'It is either a symlink to or a copy of a timezone information file such as /usr/share/zoneinfo/Europe/Berlin.'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'What is true regarding the command userdel --force --remove bob? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'The user bob is removed from the system\'s user database.',
+    'B': 'The user bob\'s home directory is removed.',
+    'C': 'The locate database is updated to drop files owned by bob.',
+    'D': 'All files owned by bob are remove from all mounted filesystems.',
+    'E': 'In case bob was the last member of a group, that group is deleted.'
+  },
+  'answers': [
+    'A',
+    'B'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'Which of the following fields can be found in the /etc/group file? (Choose THREE correct answers.)',
+  'options': {
+    'A': 'The list of users that belong to the group.',
+    'B': 'The home directory of the group.',
+    'C': 'The name of the group.',
+    'D': 'The description of the group.',
+    'E': 'The password of the group.'
+  },
+  'answers': [
+    'A',
+    'C',
+    'E'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which file, when using Sendmail or a compatible MTA system, will allow a user to redirect all of their mail to another address and is configurable by the user themselves?',
+  'options': {
+    'A': '/etc/alias',
+    'B': '/etc/mail/forwarders',
+    'C': '~/.alias',
+    'D': '~/.forward'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following commands pauses the CUPS printer LaserPrinter?',
+  'options': {
+    'A': 'cupsreject LaserPrinter',
+    'B': 'cupsreject -d LaserPrinter',
+    'C': 'cupsdisable -d LaserPrinter',
+    'D': 'cupsdisable LaserPrinter'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'Which of the following are commonly used Mail Transfer Agent (MTA) applications? (Choose THREE correct answers.)',
+  'options': {
+    'A': 'Postfix',
+    'B': 'Procmail',
+    'C': 'Sendmail',
+    'D': 'Exim',
+    'E': 'SMTPd'
+  },
+  'answers': [
+    'A',
+    'C',
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following commands lists all queued print jobs?',
+  'options': {
+    'A': 'lpd',
+    'B': 'lpr',
+    'C': 'lp',
+    'D': 'lpq'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'What is NTP?',
+  'options': {
+    'A': 'A more secure protocol replacement for FTP.',
+    'B': 'A protocol for synchronizing time on computers.',
+    'C': 'A routing aid for finding next hops on a network.',
+    'D': 'A simple tunnelling protocol for computers behind firewalls.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'What is true regarding the time in a Linux system?',
+  'options': {
+    'A': 'The BIOS clock of a computer always indicates the current local time and time zone.',
+    'B': 'Each application must convert the Unix time to the current time zone which is usually done by using standard libraries.',
+    'C': 'When the system is on the network, each query for the current time leads to a new network connection to a time server.',
+    'D': 'When the system time changes, running processes must be restarted in order to get the correct time.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'Which of the following is true regarding the mail queue of a mail server? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'The messages in the queue must be readable by all users as the queue may contain messages for several users.',
+    'B': 'According to the Filesystem Hierarchy Standard (FHS) the queue is located at /var/mail/spool.',
+    'C': 'There is exactly one mail queue per user which holds all new messages for that user before they are moved to other folders by the user\'s mail client.',
+    'D': 'The queue holds all messages that are processed by the mail server but have not yet been completely delivered.',
+    'E': 'The content of the mail queue can be queried by the command mailq.'
+  },
+  'answers': [
+    'D',
+    'E'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Why should an NTP client maintain connections to several NTP servers?',
+  'options': {
+    'A': 'To receive NTP information every second as each server transmits NTP pings every five seconds only.',
+    'B': 'To improve the precision of the time by comparing responses from several servers.',
+    'C': 'To not overload the remote server in case the local NTP time cache is not enabled.',
+    'D': 'To not lose contact with all NTP servers in case the client changes networks.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'With syslog, what is a facility?',
+  'options': {
+    'A': 'Facilities are different connection interfaces to syslog. Each facility has its own device in /dev/syslog/.',
+    'B': 'From syslog\'s point of view, each Unix process that issues messages is a facility.',
+    'C': 'Facilities describe the severity of a log message such as emerg or info.',
+    'D': 'When using remote logging, the hostname of the server that generated a message is called facility.',
+    'E': 'Facilities describe categories or groups of messages such as mail or auth.'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following files holds the configuration for journald when running systemd?',
+  'options': {
+    'A': '/etc/systemd/journalctl.conf',
+    'B': '/etc/systemd/journald.conf',
+    'C': '/etc/systemd/systemd-journald.conf',
+    'D': '/etc/systemd/systemd-journalctl.conf',
+    'E': '/usr/lib/systemd/journalctl.conf'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'Which of the following are commonly used Mail Transfer Agent (MTA) applications? (Choose THREE correct answers.)',
+  'options': {
+    'A': 'Postfix',
+    'B': 'Procmail',
+    'C': 'Sendmail',
+    'D': 'Exim',
+    'E': 'SMTPd'
+  },
+  'answers': [
+    'A',
+    'C',
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following is observed and corrected by a NTP client?',
+  'options': {
+    'A': 'The skew in time between the system clock and the hardware clock.',
+    'B': 'The skew in time between the system clock and the reference clock.',
+    'C': 'Changes in the time zone of the current computer\'s location.',
+    'D': 'Adjustments needed to support Daylight Saving Time.'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'Which command is used to sync the hardware clock to the system clock? (Specify ONLY the command without any path or parameters.)',
+  'answers': [
+    'hwclock',
+    '/sbin/hwclock',
+    '/usr/sbin/hwclock'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'Which command, available with all MTAs, is used to list the contents of the MTA\'s mail queue? (Specify ONLY the command without any path or parameters.)',
+  'answers': [
+    'mailq',
+    '/usr/bin/mailq',
+    'sendmail -bp',
+    '/usr/sbin/sendmail -bp',
+    '/usr/lib/sendmail -bp',
+    'sendmail',
+    '/usr/sbin/sendmail',
+    '/usr/lib/sendmail'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'Please specify the top directory containing the configuration files for the CUPS printing system. (Specify the full path to the directory.)',
+  'answers': [
+    '/etc/cups',
+    '/etc/cups/'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following is a legacy program provided by CUPS for sending files to the printer queues on the command line?',
+  'options': {
+    'A': 'lpd',
+    'B': 'lpp',
+    'C': 'lpq',
+    'D': 'lpr'
+  },
+  'answers': [
+    'D'
+  ]
+});
