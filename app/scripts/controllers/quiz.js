@@ -8,8 +8,9 @@
  * Controller of the quizApp
  */
 angular.module('quizApp')
-  .controller('QuizCtrl', ['$scope','$sce', function ($scope,$sce) {
+  .controller('QuizCtrl', ['$scope','$sce', 'localStorageService', function ($scope, $sce, localStorageService) {
     // init controller vars
+    $scope.questSet = '';
     $scope.qstView = '';
     $scope.qstCnt = 0;
     $scope.answeredQsts = [];
@@ -123,6 +124,9 @@ angular.module('quizApp')
     // test display
     $scope.testInit = function(questSet){
 
+      // method vars
+      var localStoreFnd = '';
+
       // loads questions
       if(questSet === 'lx0103' || typeof questSet === 'undefined'){
         $scope.questions = lx0103;
@@ -132,10 +136,28 @@ angular.module('quizApp')
         $scope.questions = [];
       }
 
+      // store selected question set
+      $scope.questSet = questSet || '';
+
       // update controller vars
       $scope.qstCnt = $scope.questions.length;
 
-      //console.log($scope.perTest.cnt);
+      // load previous values if local storage is available and values are found
+      if(localStorageService.isSupported) {
+        localStoreFnd = localStorageService.get($scope.questSet);
+
+        if(localStoreFnd){
+          $scope.userSelections = localStoreFnd.userSelections;
+          $scope.answeredQsts = localStoreFnd.answeredQsts;
+          $scope.answeredQstsLst = localStoreFnd.answeredQstsLst;
+          $scope.curQstNum = localStoreFnd.curQstNum;
+          $scope.perTest.cnt = localStoreFnd.perTestCnt;
+          $scope.curQstID = localStoreFnd.curQstID;
+          $scope.resultsBtn = localStoreFnd.resultsBtn;
+          $scope.nextBtn = localStoreFnd.nextBtn;
+          $scope.curCnt = localStoreFnd.curCnt;
+        }
+      }
 
       // load initial question
       $scope.questIter();
@@ -170,11 +192,12 @@ angular.module('quizApp')
         reqQst = randQst = $scope.answeredQstsLst[$scope.curQstNum];
       }
 
-      // update current question number
-      $scope.curQstNum += 1;
-
       // present random question then repeat until all questions have been shown
       if(typeof $scope.answeredQsts[randQst] === 'undefined' || reqQst){
+
+        // update current question number
+        $scope.curQstNum += 1;
+
         $scope.curQstID = randQst;
         $scope.prntQuestion($scope.questions[randQst]);
       } else {
@@ -233,7 +256,8 @@ angular.module('quizApp')
           i = 0,
           j = 0,
           correctCnt = 0,
-          ansCorrect = 0;
+          ansCorrect = 0,
+          qstSetStore = {};
 
         // determine question type
         switch(curQuest.type){
@@ -272,12 +296,33 @@ angular.module('quizApp')
         }
         // update correct stats
         $scope.results = 'Correct answers: ' + curQuest.answers + '<br>Your Results: ' + correctCnt + ' correct';
+        // show results button
         if($scope.perCompleted() < 100){
-          $scope.nextBtn = 1;
           $scope.resultsBtn = 0;
         } else {
-          $scope.nextBtn = 0;
           $scope.resultsBtn = 1;
+        }
+        // show/hide next button
+        if($scope.curQstNum < $scope.perTest.cnt){
+          $scope.nextBtn = 1;
+        } else {
+          $scope.nextBtn = 0;
+        }
+
+        // save selections to local storage if available
+        if(localStorageService.isSupported) {
+          qstSetStore = {
+            userSelections: $scope.userSelections,
+            answeredQsts: $scope.answeredQsts,
+            answeredQstsLst: $scope.answeredQstsLst,
+            curQstNum: $scope.curQstNum,
+            perTestCnt: $scope.perTest.cnt,
+            curQstID: $scope.curQstID,
+            resultsBtn: $scope.resultsBtn,
+            nextBtn: $scope.nextBtn,
+            curCnt: $scope.curCnt
+          };
+          localStorageService.set($scope.questSet, qstSetStore);
         }
 
         // update user scores
@@ -287,7 +332,7 @@ angular.module('quizApp')
 
     // print quiz results
     $scope.viewResults = function(){
-      
+
     };
 
 }]);

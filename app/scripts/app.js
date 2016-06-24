@@ -15,8 +15,15 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'LocalStorageModule'
   ])
+  .config(function (localStorageServiceProvider) {
+    localStorageServiceProvider
+      .setPrefix('quiz')
+      .setStorageType('sessionStorage')
+      .setNotify(true, true)
+  })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
