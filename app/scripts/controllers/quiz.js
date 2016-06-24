@@ -18,11 +18,23 @@ angular.module('quizApp')
     $scope.checkVals = {};
     $scope.prevQstID = 0;
     $scope.curQstID = 0;
+    $scope.curQstNum = 0;
     $scope.curCnt = 0;
     $scope.remCnt = 0;
     $scope.results = '';
     $scope.nextBtn = 0;
+    $scope.resultsBtn = 0;
     $scope.per_correct = 0;
+    $scope.perTest = {cnt: 20};
+    $scope.testLimiters = [
+      {cnt: 10},
+      {cnt: 20},
+      {cnt: 40},
+      {cnt: 60},
+      {cnt: 80},
+      {cnt: 100},
+      {cnt: 120}
+    ]
     // shared local vars
     $scope.Math = Math;
 
@@ -99,7 +111,7 @@ angular.module('quizApp')
         break;
       }
 
-      $scope.qstView = '<h3>' + qstTxt + '</h3>' + options;
+      $scope.qstView = '<p>' + qstTxt + '</p>' + options;
 
     };
 
@@ -123,14 +135,24 @@ angular.module('quizApp')
       // update controller vars
       $scope.qstCnt = $scope.questions.length;
 
+      //console.log($scope.perTest.cnt);
+
       // load initial question
       $scope.questIter();
 
     };
 
+    // update test based on selected question count
+    $scope.updateTest = function(){
+      if(confirm('Changing the test\'s question count will cause your existing progress to start from the beginning. Is this okay?')){
+        // restart test with newly set question limit
+        $scope.testInit();
+      }
+    }
+
     $scope.questIter = function(reqQst){
 
-      var qstsLimit = $scope.questions.length,
+      var qstsLimit = $scope.perTest.cnt,
           qstsAnswd = $scope.answeredQsts.length || 0,
           randQst = reqQst || Math.floor((Math.random() * qstsLimit));
 
@@ -142,6 +164,14 @@ angular.module('quizApp')
       // update counts
       $scope.currentCnt();
       $scope.remCnt = qstsLimit - $scope.curCnt;
+
+      // check for previous question view
+      if(typeof $scope.answeredQstsLst[$scope.curQstNum] !== 'undefined'){
+        reqQst = randQst = $scope.answeredQstsLst[$scope.curQstNum];
+      }
+
+      // update current question number
+      $scope.curQstNum += 1;
 
       // present random question then repeat until all questions have been shown
       if(typeof $scope.answeredQsts[randQst] === 'undefined' || reqQst){
@@ -155,13 +185,18 @@ angular.module('quizApp')
 
     // load previous question
     $scope.loadPrevious = function(){
-      var prevID = $scope.answeredQstsLst.indexOf(Number($scope.curQstID));
-      if(prevID === -1){
-        if($scope.answeredQstsLst.length > 0){
-          prevID = $scope.answeredQstsLst[$scope.answeredQstsLst.length - 1];
-        }
+      // get previous question ID
+      var prevNum = $scope.curQstNum-2,
+          prevID = $scope.answeredQstsLst[prevNum];
+
+      // check for end of question list
+      if(typeof prevID !== 'undefined'){
+        // update current question number
+        $scope.curQstNum -= 2;
+        // load previous question
+        $scope.questIter(prevID);
       }
-      $scope.questIter(prevID);
+
     };
 
     // gather user score data
@@ -178,6 +213,16 @@ angular.module('quizApp')
       }
 
       $scope.per_correct = Math.round((100 / $scope.curCnt) * correctCnt);
+    };
+
+    // get per completed
+    $scope.perCompleted = function(){
+      return Math.round((100 / $scope.perTest.cnt) * $scope.curCnt-1);
+    };
+
+    // get per remaining
+    $scope.perRemaning = function(){
+      return Math.round((100 / $scope.perTest.cnt) * $scope.remCnt);
     };
 
     // check current question for correctness
@@ -227,11 +272,22 @@ angular.module('quizApp')
         }
         // update correct stats
         $scope.results = 'Correct answers: ' + curQuest.answers + '<br>Your Results: ' + correctCnt + ' correct';
-        $scope.nextBtn = 1;
+        if($scope.perCompleted() < 100){
+          $scope.nextBtn = 1;
+          $scope.resultsBtn = 0;
+        } else {
+          $scope.nextBtn = 0;
+          $scope.resultsBtn = 1;
+        }
 
         // update user scores
         $scope.getScores();
 
     };
 
-  }]);
+    // print quiz results
+    $scope.viewResults = function(){
+      
+    };
+
+}]);
