@@ -37,7 +37,7 @@
       <div style="text-align:right" class="col-md-6">
         <button style="text-align:right" ng-click="checkSelections()" class="btn btn-default">Submit</button>
         <button style="text-align:right" ng-click="questIter()" class="btn btn-default" ng-show="nextBtn == 1 && curQstNum < perTest.cnt">Next Question</button>
-        <button style="text-align:right" ng-click="viewResults()" class="btn btn-default" ng-show="resultsBtn == 1">View Results</button>
+        <button style="text-align:right" ng-click="viewResults()" class="btn btn-default" ng-show="perCompleted() == 100">View Results</button>
       </div>
     </div>
   </form>

@@ -24,10 +24,10 @@ angular.module('quizApp')
     $scope.remCnt = 0;
     $scope.results = '';
     $scope.nextBtn = 0;
-    $scope.resultsBtn = 0;
     $scope.per_correct = 0;
     $scope.perTest = {cnt: 20};
     $scope.testLimiters = [
+      {cnt: 5},
       {cnt: 10},
       {cnt: 20},
       {cnt: 40},
@@ -152,7 +152,6 @@ angular.module('quizApp')
           $scope.curQstNum = localStoreFnd.curQstNum;
           $scope.perTest.cnt = localStoreFnd.perTestCnt;
           $scope.curQstID = localStoreFnd.curQstID;
-          $scope.resultsBtn = localStoreFnd.resultsBtn;
           $scope.nextBtn = localStoreFnd.nextBtn;
           $scope.curCnt = localStoreFnd.curCnt;
         }
@@ -177,7 +176,6 @@ angular.module('quizApp')
         $scope.answeredQstsLst = [];
         $scope.curQstNum = 0;
         $scope.curQstID = 0;
-        $scope.resultsBtn = 0;
         $scope.nextBtn = 0;
         $scope.curCnt = 0;
         $scope.remCnt = 0;
@@ -317,12 +315,10 @@ angular.module('quizApp')
         }
         // update correct stats
         $scope.results = 'Correct answers: ' + curQuest.answers + '<br>Your Results: ' + correctCnt + ' correct';
-        // show results button
-        if($scope.curQstNum === $scope.perTest.cnt){
-          $scope.resultsBtn = 1;
-        } else {
-          $scope.resultsBtn = 0;
-        }
+
+        // update count
+        $scope.currentCnt();
+        
         // show/hide next button
         if($scope.curQstNum < $scope.perTest.cnt){
           $scope.nextBtn = 1;
@@ -338,7 +334,6 @@ angular.module('quizApp')
             curQstNum: $scope.curQstNum,
             perTestCnt: $scope.perTest.cnt,
             curQstID: $scope.curQstID,
-            resultsBtn: $scope.resultsBtn,
             nextBtn: $scope.nextBtn,
             curCnt: $scope.curCnt
           };
