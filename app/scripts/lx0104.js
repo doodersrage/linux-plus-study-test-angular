@@ -1275,3 +1275,238 @@ lx0104.push({
     'C'
   ]
 });
+lx0104.push({
+  'type': 'single',
+  'text': 'On a regular users workstation the route command takes a long time before printing out the routing table. Which of the following errors does that indicate?',
+  'options': {
+    'A': 'The local routing information may be corrupted and must be re-validated using a routing protocol.',
+    'B': 'One of the routers in the routing table is not available which causes the automatic router failure detection mechanism (ARF-D) to wait for a timeout.',
+    'C': 'There may accidentally be more than one default router in which case a default router election has to be done on the network in order to choose one router as the default.',
+    'D': 'DNS resolution may not be working as route by default tries to resolve names of routers and destinations and may run into a timeout.'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'Which keyword must be listed in the hosts option of the Name Service Switch configuration file in order to make host lookups consult the /etc/hosts file?',
+  'answers': [
+    'files'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'In an xinetd configuration file, which attribute specifies the network address that will be used to provide the service?',
+  'answers': [
+    'bind',
+    'interface'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'What argument to the -type option of find will match files that are symbolic links? (Specify only the argument and no other options or words.)',
+  'answers': [
+    '|'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'With X11 forwarding in ssh, what environment variable is automatically set in the remote host shell that is not set when X11 forwarding is not enabled? (Specify only the environment variable without any additional commands or values.)',
+  'answers': [
+    'DISPLAY',
+    '$DISPLAY'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'The presence of what file will temporarily prevent all users except root from logging into the system? (Specify the full name of the file, including path.)',
+  'answers': [
+    '/etc/nologin'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which configuration file would be edited to change the default options for outbound SSH sessions?',
+  'options': {
+    'A': '/etc/ssh/sshd_config',
+    'B': '/etc/ssh/ssh',
+    'C': '/etc/ssh/client',
+    'D': '/etc/ssh/ssh_config',
+    'E': '/etc/ssh/ssh_client'
+  },
+  'answers': [
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following programs uses the hosts.allow file to perform its main task of checking for access control restrictions to system services?',
+  'options': {
+    'A': 'tcpd',
+    'B': 'inetd',
+    'C': 'fingerd',
+    'D': 'mountd',
+    'E': 'xinetd'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which command is used to set restrictions on the size of a core file that is created for a user when a program crashes?',
+  'options': {
+    'A': 'core',
+    'B': 'edquota',
+    'C': 'ulimit',
+    'D': 'quota'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'When trying to unmount a device it is reported as being busy. Which of the following commands could be used to determine which process is causing this?',
+  'options': {
+    'A': 'debug',
+    'B': 'lsof',
+    'C': 'nessus',
+    'D': 'strace',
+    'E': 'traceroute'
+  },
+  'answers': [
+    'B'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which configuration file would be edited to change default options for the OpenSSH server?',
+  'options': {
+    'A': '/etc/ssh/sshd_config',
+    'B': '/etc/ssh/ssh',
+    'C': '/etc/ssh/server',
+    'D': '/etc/ssh/ssh_config',
+    'E': '/etc/ssh/ssh_server'
+  },
+  'answers': [
+    'A'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which configuration file does sudo read when determining if a user is permitted to run applications with root privileges?',
+  'options': {
+    'A': '/etc/security.conf',
+    'B': '/etc/supasswd',
+    'C': '/etc/sudoers',
+    'D': '/etc/sudo.conf'
+  },
+  'answers': [
+    'C'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following commands can be used to associate open TCP ports with the processes that opened the ports?',
+  'options': {
+    'A': 'ptrace',
+    'B': 'strace',
+    'C': 'debug',
+    'D': 'nessus',
+    'E': 'lsof'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'Instead of using specific host names or IP addresses, which string can be used in /etc/hosts.allow entries to cover any remote host no matter of its name or address? (Specify the relevant string only without any additional options or arguments.)',
+  'answers': [
+    'ALL'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'Which of the following resources can be directly limited for a given user using ulimit? (Choose THREE correct answers.)',
+  'options': {
+    'A': 'Maximum seconds of CPU time spent.',
+    'B': 'Maximum number of open file descriptors.',
+    'C': 'Maximum number of processes available.',
+    'D': 'Maximum number of concurrent login sessions.',
+    'E': 'Maximum seconds of login duration per session.'
+  },
+  'answers': [
+    'A',
+    'B',
+    'C'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'Depending on the host\'s configuration, which of the following files can be used to turn on and off network services running on a host? (Choose TWO correct answers.)',
+  'options': {
+    'A': '/etc/profile',
+    'B': '/etc/services',
+    'C': '/etc/inetd.conf',
+    'D': '/etc/xinetd.conf',
+    'E': '/etc/host.conf'
+  },
+  'answers': [
+    'C',
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'How do shadow passwords improve the password security in comparison to standard passwd passwords?',
+  'options': {
+    'A': 'Shadow passwords are stored in plain text and can be checked for weak passwords.',
+    'B': 'Every shadow password is valid for 45 days and must be changed afterwards.',
+    'C': 'The system\'s host key is used to strongly encrypt all shadow passwords.',
+    'D': 'Shadow passwords are always combined with a public key that has to match the user\'s private key.',
+    'E': 'Regular users do not have access to the password hashes of shadow passwords.'
+  },
+  'answers': [
+    'E'
+  ]
+});
+lx0104.push({
+  'type': 'multiple',
+  'text': 'What is true regarding public and private SSH keys? (Choose TWO correct answers.)',
+  'options': {
+    'A': 'Several different public keys may be generated for the same private key.',
+    'B': 'The private key must never be revealed to anyone.',
+    'C': 'For each user account, there is exactly one key pair that can be used to log into that account.',
+    'D': 'To maintain the private key\'s confidentiality, the SSH key pair must be created by its owner.',
+    'E': 'To allow remote logins, the user\'s private key must be copied to the remote server.'
+  },
+  'answers': [
+    'B',
+    'D'
+  ]
+});
+lx0104.push({
+  'type': 'text',
+  'text': 'Which command is used to add OpenSSH private keys to a running ssh-agent instance? (Specify the file name only without any path.)',
+  'answers': [
+    'ssh-add',
+    '/usr/bin/ssh-add'
+  ]
+});
+lx0104.push({
+  'type': 'single',
+  'text': 'Which of the following commands gets the GnuPG public key with the id 63B4835B from the keyserver example.com?',
+  'options': {
+    'A': 'gpg --keyserver hkp://example.com --recv-key 63B4835B',
+    'B': 'gpg --search-key hkp://63B4835B@example.com',
+    'C': 'gpg --keyserver gpg://example.com --get-key 63B4835B',
+    'D': 'gpg --keyserver hkp://example.com --add-key 63B4835B',
+    'E': 'gpg --keyserver gpg://example.com --key 63B4835B'
+  },
+  'answers': [
+    'A'
+  ]
+});
