@@ -147,7 +147,6 @@ angular.module('quizApp')
         localStoreFnd = localStorageService.get($scope.questSet);
 
         if(localStoreFnd){
-          $scope.userSelections = localStoreFnd.userSelections;
           $scope.answeredQsts = localStoreFnd.answeredQsts;
           $scope.answeredQstsLst = localStoreFnd.answeredQstsLst;
           $scope.curQstNum = localStoreFnd.curQstNum;
@@ -167,6 +166,23 @@ angular.module('quizApp')
     // update test based on selected question count
     $scope.updateTest = function(){
       if(confirm('Changing the test\'s question count will cause your existing progress to start from the beginning. Is this okay?')){
+        // reset local storage, if applicable
+        if(localStorageService.isSupported) {
+          localStorageService.remove('');
+          localStorageService.remove($scope.questSet);
+        }
+
+        // reset everything
+        $scope.answeredQsts = [];
+        $scope.answeredQstsLst = [];
+        $scope.curQstNum = 0;
+        $scope.curQstID = 0;
+        $scope.resultsBtn = 0;
+        $scope.nextBtn = 0;
+        $scope.curCnt = 0;
+        $scope.remCnt = 0;
+        $scope.per_correct = 0;
+
         // restart test with newly set question limit
         $scope.testInit();
       }
@@ -174,7 +190,7 @@ angular.module('quizApp')
 
     $scope.questIter = function(reqQst){
 
-      var qstsLimit = $scope.perTest.cnt,
+      var qstsLimit = $scope.qstCnt,
           qstsAnswd = $scope.answeredQsts.length || 0,
           randQst = reqQst || Math.floor((Math.random() * qstsLimit));
 
@@ -185,7 +201,7 @@ angular.module('quizApp')
 
       // update counts
       $scope.currentCnt();
-      $scope.remCnt = qstsLimit - $scope.curCnt;
+      $scope.remCnt = $scope.perTest.cnt - $scope.curCnt;
 
       // check for previous question view
       if(typeof $scope.answeredQstsLst[$scope.curQstNum] !== 'undefined'){
@@ -193,7 +209,7 @@ angular.module('quizApp')
       }
 
       // present random question then repeat until all questions have been shown
-      if(typeof $scope.answeredQsts[randQst] === 'undefined' || reqQst){
+      if(!$scope.answeredQsts[randQst] || reqQst){
 
         // update current question number
         $scope.curQstNum += 1;
@@ -240,7 +256,12 @@ angular.module('quizApp')
 
     // get per completed
     $scope.perCompleted = function(){
-      return Math.round((100 / $scope.perTest.cnt) * $scope.curCnt-1);
+      var perCom = $scope.curCnt-1;
+      if(perCom > 0){
+        return Math.round((100 / $scope.perTest.cnt) * perCom);
+      } else {
+        return 0;
+      }
     };
 
     // get per remaining
@@ -297,10 +318,10 @@ angular.module('quizApp')
         // update correct stats
         $scope.results = 'Correct answers: ' + curQuest.answers + '<br>Your Results: ' + correctCnt + ' correct';
         // show results button
-        if($scope.perCompleted() < 100){
-          $scope.resultsBtn = 0;
-        } else {
+        if($scope.curQstNum === $scope.perTest.cnt){
           $scope.resultsBtn = 1;
+        } else {
+          $scope.resultsBtn = 0;
         }
         // show/hide next button
         if($scope.curQstNum < $scope.perTest.cnt){
@@ -312,7 +333,6 @@ angular.module('quizApp')
         // save selections to local storage if available
         if(localStorageService.isSupported) {
           qstSetStore = {
-            userSelections: $scope.userSelections,
             answeredQsts: $scope.answeredQsts,
             answeredQstsLst: $scope.answeredQstsLst,
             curQstNum: $scope.curQstNum,
