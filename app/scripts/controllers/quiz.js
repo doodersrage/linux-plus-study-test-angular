@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name quizApp.controller:AboutCtrl
+ * @name quizApp.controller:QuizCtrl
  * @description
- * # AboutCtrl
+ * # QuizCtrl
  * Controller of the quizApp
  */
 angular.module('quizApp')
@@ -318,7 +318,7 @@ angular.module('quizApp')
 
         // update count
         $scope.currentCnt();
-        
+
         // show/hide next button
         if($scope.curQstNum < $scope.perTest.cnt){
           $scope.nextBtn = 1;
@@ -347,7 +347,31 @@ angular.module('quizApp')
 
     // print quiz results
     $scope.viewResults = function(){
+      var limit = $scope.answeredQstsLst.length,
+          i = 0,
+          selQID = 0,
+          resultsOP = '',
+          selQst = {},
+          qstTxt = '',
+          yourAns = [];
 
+      // walk through list of answered questions and print results
+      for(i; i < limit; ++i){
+        // gather current question data
+        selQID = $scope.answeredQstsLst[i];
+        selQst = $scope.questions[selQID];
+        qstTxt = selQst.text;
+        yourAns = $scope.answeredQsts[selQID];
+
+        // format question output
+        resultsOP += '<p>' + i + '. ' + qstTxt + '</p>';
+        resultsOP += '<p>Correct answers: ' + selQst.answers + '</p>';
+        resultsOP += '<p>Your answers: ' + yourAns.answers + '</p>';
+        resultsOP += '<p>Asnwered correctly: ' + (yourAns.ansCorrect === 1 ? 'Yes' : 'No') + '</p>';
+        resultsOP += '<br>';
+      }
+
+      $scope.qstView = resultsOP;
     };
 
 }]);
