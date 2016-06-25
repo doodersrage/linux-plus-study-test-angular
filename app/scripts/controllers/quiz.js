@@ -353,19 +353,39 @@ angular.module('quizApp')
           resultsOP = '',
           selQst = {},
           qstTxt = '',
-          yourAns = [];
+          yourAns = [],
+          optsStr = '',
+          key = '';
 
+      // clear results panel
+      $scope.results = '';
+      
       // walk through list of answered questions and print results
       for(i; i < limit; ++i){
         // gather current question data
+        optsStr = '<p>';
         selQID = $scope.answeredQstsLst[i];
         selQst = $scope.questions[selQID];
         qstTxt = selQst.text;
         yourAns = $scope.answeredQsts[selQID];
 
         // format question output
-        resultsOP += '<p>' + i + '. ' + qstTxt + '</p>';
+        resultsOP += '<p>' + (i+1) + '. ' + qstTxt + '</p>';
+
+        // determine question type
+        switch(selQst.type){
+          case 'single':
+          case 'multiple':
+            for (key in selQst.options) {
+              optsStr += key + '. ' + selQst.options[key] + '<br>';
+            }
+          break;
+        }
+        optsStr += '</p>';
+
+        // combine output
         resultsOP += '<p>Correct answers: ' + selQst.answers + '</p>';
+        resultsOP += optsStr;
         resultsOP += '<p>Your answers: ' + yourAns.answers + '</p>';
         resultsOP += '<p>Asnwered correctly: ' + (yourAns.ansCorrect === 1 ? 'Yes' : 'No') + '</p>';
         resultsOP += '<br>';
