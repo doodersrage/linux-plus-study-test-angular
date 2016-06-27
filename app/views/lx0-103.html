@@ -10,8 +10,7 @@
           Questions per test:
           <select ng-options="testLimiter as testLimiter.cnt for testLimiter in testLimiters track by testLimiter.cnt" ng-model="perTest" name="perTest" ng-change="updateTest()">
           </select>
-        </label><br>
-        <button style="text-align:right" ng-click="restartQuiz()" ng-show="localStorage && curQstNum > 1" class="btn btn-default">Restart Quiz</button>
+        </label>
       </div>
     </div>
     <div class="row">
@@ -39,6 +38,11 @@
         <button style="text-align:right" ng-click="checkSelections()" class="btn btn-default">Submit</button>
         <button style="text-align:right" ng-click="questIter()" class="btn btn-default" ng-show="nextBtn == 1 && curQstNum < perTest.cnt">Next Question</button>
         <button style="text-align:right" ng-click="viewResults()" class="btn btn-default" ng-show="perCompleted() == 100">View Results</button>
+      </div>
+    </div>
+    <div class="row" ng-show="localStorage && answeredQstsLst.length > 1">
+      <div style="text-align:center;padding:40px 0" class="col-md-12">
+        <button style="text-align:right" ng-click="restartQuiz()" class="btn btn-default">Restart Quiz</button>
       </div>
     </div>
   </form>

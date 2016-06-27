@@ -173,15 +173,19 @@ angular.module('quizApp')
     };
 
     $scope.restartQuiz = function(){
-      // reset local storage, if applicable
-      if(localStorageService.isSupported) {
-        localStorageService.remove('');
-        localStorageService.remove($scope.questSet);
-      }
-      // reset all current quiz data
-      resetQuiz();
 
-      $scope.testInit($scope.questSet);
+      if(confirm('Are you sure?')){
+        // reset local storage, if applicable
+        if(localStorageService.isSupported) {
+          localStorageService.remove('');
+          localStorageService.remove($scope.questSet);
+        }
+        // reset all current quiz data
+        resetQuiz();
+
+        $scope.testInit($scope.questSet);
+
+      }
     };
 
     // update test based on selected question count
@@ -197,7 +201,7 @@ angular.module('quizApp')
         resetQuiz();
 
         // restart test with newly set question limit
-        $scope.testInit();
+        $scope.testInit($scope.questSet);
       }
     };
 
@@ -263,7 +267,7 @@ angular.module('quizApp')
         }
       }
 
-      $scope.perCorrect = Math.round((100 / $scope.curCnt) * correctCnt);
+      $scope.perCorrect = Math.round((100 / ansQstsLn) * correctCnt);
     };
 
     // get per completed
