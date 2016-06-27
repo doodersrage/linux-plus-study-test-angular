@@ -24,7 +24,7 @@ angular.module('quizApp')
     $scope.remCnt = 0;
     $scope.results = '';
     $scope.nextBtn = 0;
-    $scope.per_correct = 0;
+    $scope.perCorrect = 0;
     $scope.perTest = {cnt: 20};
     $scope.testLimiters = [
       {cnt: 5},
@@ -35,9 +35,9 @@ angular.module('quizApp')
       {cnt: 80},
       {cnt: 100},
       {cnt: 120}
-    ]
+    ];
     // shared local vars
-    $scope.Math = Math;
+    $scope.localStorage = localStorageService.isSupported;
 
     // load exam questions
     $scope.questions = [];
@@ -57,8 +57,7 @@ angular.module('quizApp')
 
     // generate single anser question options
     $scope.genSingle = function(options){
-      var i = 0,
-          optsStr = '',
+      var optsStr = '',
           key;
 
       for (key in options) {
@@ -74,8 +73,7 @@ angular.module('quizApp')
 
     // generate multiple anser question options
     $scope.genMultiple = function(options){
-      var i = 0,
-          optsStr = '',
+      var optsStr = '',
           key;
 
       for (key in options) {
@@ -162,6 +160,30 @@ angular.module('quizApp')
 
     };
 
+    var resetQuiz = function(){
+      // reset everything
+      $scope.answeredQsts = [];
+      $scope.answeredQstsLst = [];
+      $scope.curQstNum = 0;
+      $scope.curQstID = 0;
+      $scope.nextBtn = 0;
+      $scope.curCnt = 0;
+      $scope.remCnt = 0;
+      $scope.perCorrect = 0;
+    };
+
+    $scope.restartQuiz = function(){
+      // reset local storage, if applicable
+      if(localStorageService.isSupported) {
+        localStorageService.remove('');
+        localStorageService.remove($scope.questSet);
+      }
+      // reset all current quiz data
+      resetQuiz();
+
+      $scope.testInit($scope.questSet);
+    };
+
     // update test based on selected question count
     $scope.updateTest = function(){
       if(confirm('Changing the test\'s question count will cause your existing progress to start from the beginning. Is this okay?')){
@@ -171,25 +193,17 @@ angular.module('quizApp')
           localStorageService.remove($scope.questSet);
         }
 
-        // reset everything
-        $scope.answeredQsts = [];
-        $scope.answeredQstsLst = [];
-        $scope.curQstNum = 0;
-        $scope.curQstID = 0;
-        $scope.nextBtn = 0;
-        $scope.curCnt = 0;
-        $scope.remCnt = 0;
-        $scope.per_correct = 0;
+        // reset all current quiz data
+        resetQuiz();
 
         // restart test with newly set question limit
         $scope.testInit();
       }
-    }
+    };
 
     $scope.questIter = function(reqQst){
 
       var qstsLimit = $scope.qstCnt,
-          qstsAnswd = $scope.answeredQsts.length || 0,
           randQst = reqQst || Math.floor((Math.random() * qstsLimit));
 
       // reset Everything
@@ -249,7 +263,7 @@ angular.module('quizApp')
         }
       }
 
-      $scope.per_correct = Math.round((100 / $scope.curCnt) * correctCnt);
+      $scope.perCorrect = Math.round((100 / $scope.curCnt) * correctCnt);
     };
 
     // get per completed
@@ -359,7 +373,7 @@ angular.module('quizApp')
 
       // clear results panel
       $scope.results = '';
-      
+
       // walk through list of answered questions and print results
       for(i; i < limit; ++i){
         // gather current question data
@@ -370,7 +384,7 @@ angular.module('quizApp')
         yourAns = $scope.answeredQsts[selQID];
 
         // format question output
-        resultsOP += '<p>' + (i+1) + '. ' + qstTxt + '</p>';
+        resultsOP += '<p><b>' + (i+1) + '. ' + qstTxt + '</b></p>';
 
         // determine question type
         switch(selQst.type){
@@ -388,7 +402,7 @@ angular.module('quizApp')
         resultsOP += optsStr;
         resultsOP += '<p>Your answers: ' + yourAns.answers + '</p>';
         resultsOP += '<p>Asnwered correctly: ' + (yourAns.ansCorrect === 1 ? 'Yes' : 'No') + '</p>';
-        resultsOP += '<br>';
+        resultsOP += '<hr>';
       }
 
       $scope.qstView = resultsOP;

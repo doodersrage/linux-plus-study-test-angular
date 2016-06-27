@@ -22,7 +22,7 @@ angular
     localStorageServiceProvider
       .setPrefix('quiz')
       .setStorageType('sessionStorage')
-      .setNotify(true, true)
+      .setNotify(true, true);
   })
   .config(function ($routeProvider) {
     $routeProvider

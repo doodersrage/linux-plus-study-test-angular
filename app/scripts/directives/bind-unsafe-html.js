@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('quizApp').directive('compile', ['$compile', function ($compile) {
     return function(scope, element, attrs) {
       scope.$watch(

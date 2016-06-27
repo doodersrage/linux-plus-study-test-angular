@@ -10,7 +10,8 @@
           Questions per test:
           <select ng-options="testLimiter as testLimiter.cnt for testLimiter in testLimiters track by testLimiter.cnt" ng-model="perTest" name="perTest" ng-change="updateTest()">
           </select>
-        </label>
+        </label><br>
+        <button style="text-align:right" ng-click="restartQuiz()" ng-show="localStorage && curQstNum > 1" class="btn btn-default">Restart Quiz</button>
       </div>
     </div>
     <div class="row">
@@ -21,7 +22,7 @@
         Remaining: %<span>{{perRemaning()}}</span></p>
       </div>
       <div style="text-align:left" class="col-md-6">
-        <p>correct out of attempted: %{{per_correct}}</p>
+        <p>correct out of attempted: %{{perCorrect}}</p>
       </div>
     </div>
     <div class="jumbotron" compile="qstView">

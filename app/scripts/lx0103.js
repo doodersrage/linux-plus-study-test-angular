@@ -612,9 +612,9 @@ lx0103.push({
   'type': 'single',
   'text': 'A user accidentally created the subdirectory \dir in his home directory. Which of the following commands will remove that directory?',
   'options': {
-    'A': "rmdir '~/\dir'",
+    'A': 'rmdir \'~/\dir\'',
     'B': 'rmdir "~/\dir"',
-    'C': "rmdir ~/'dir'",
+    'C': 'rmdir ~/\'dir\'',
     'D': 'rmdir ~/\dir',
     'E': 'rmdir ~/\\dir'
   },
