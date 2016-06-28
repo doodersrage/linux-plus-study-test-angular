@@ -402,8 +402,8 @@ angular.module('quizApp')
         optsStr += '</p>';
 
         // combine output
-        resultsOP += '<p>Correct answers: ' + selQst.answers + '</p>';
         resultsOP += optsStr;
+        resultsOP += '<p>Correct answers: ' + selQst.answers + '</p>';
         resultsOP += '<p>Your answers: ' + yourAns.answers + '</p>';
         resultsOP += '<p>Asnwered correctly: ' + (yourAns.ansCorrect === 1 ? 'Yes' : 'No') + '</p>';
         resultsOP += '<hr>';
