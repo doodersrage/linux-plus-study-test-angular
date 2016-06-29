@@ -616,7 +616,7 @@ lx0103.push({
     'B': 'rmdir "~/\dir"',
     'C': 'rmdir ~/\'dir\'',
     'D': 'rmdir ~/\dir',
-    'E': 'rmdir ~/\\dir'
+    'E': 'rmdir ~/\\\\dir'
   },
   'answers': [
     'E'

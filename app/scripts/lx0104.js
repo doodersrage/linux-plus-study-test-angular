@@ -1307,7 +1307,7 @@ lx0104.push({
   'type': 'text',
   'text': 'What argument to the -type option of find will match files that are symbolic links? (Specify only the argument and no other options or words.)',
   'answers': [
-    '|'
+    'I'
   ]
 });
 lx0104.push({
